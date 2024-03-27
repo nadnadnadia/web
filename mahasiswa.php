@@ -1,6 +1,23 @@
 <?php
 include 'template/header.php';
 include 'template/sidebar.php';
+include 'template/header.php';
+include 'template/sidebar.php';
+
+$servername = "localhost";
+$database = "poliban";
+$username = "root";
+$password = "";
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+$query = "SELECT * FROM mahasiswa";
+$hasil = mysqli_query($conn, $query);
+
+$data = [];
+while ($baris = mysqli_fetch_assoc($hasil)) {
+  $data[] = $baris;
+}
 ?>
 
 
@@ -21,7 +38,7 @@ include 'template/sidebar.php';
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Data Mahasiswa v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,7 +54,7 @@ include 'template/sidebar.php';
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Data Mahasiswa</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -56,61 +73,33 @@ include 'template/sidebar.php';
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th>No</th>
+                      <th>NIM</th>
+                      <th>Nama</th>
+                      <th>no_hp</th>
+                      <th>Alamat</th>
+                      <th>Photo</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
+                  <?php
+                  $i=1;
+                    foreach ($data as $d) {
+                    ?>
                     <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td><?php echo $i++ ?></td>
+                      <td><?php echo $d['NIM']?> </td>
+                      <td><?php echo $d['Nama']?> </td>
+                      <td><?php echo $d['no_hp']?> </td>
+                      <td><?php echo $d['Alamat']?> </td>
+                      <td><?php echo $d['Photo']?> </td>
+                      <td><a href= "" class="btn btn-warning">Edit</a>
+                          <a href="" class="btn btn-danger">Hapus</a>
+                        </td>
                     </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
+                    <?php
+                    }
+                    ?>
+                 
      
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <?php
-  include 'template/footer.php';
-  ?>
- 
