@@ -1,4 +1,4 @@
-<?php
+<?php  
 include 'template/header.php';
 include 'template/sidebar.php';
 
@@ -32,7 +32,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard v1</li>
+            <li class="breadcrumb-item active">Program Studi</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -45,48 +45,39 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Responsive Hover Table</h3>
-
-              <div class="card-tools">
-              <a href="tambahprodi.php"class="btn btn-primary">Tambah</a> 
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Tambah Program Studi <small>
               </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="tambahaksiprodi.php" method="post">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="namaprodi">Nama Prodi</label>
+                    <input type="text" name="namaprodi" class="form-control" id="namaprodi" placeholder="Masukkan Nama Prodi">
+                  </div>
+                 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Prodi</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $i = 1;
-                  foreach ($data as $d) {
-                  ?>
-                    <tr>
-                      <td><?php echo $i++ ?></td>
-                      <td><?php echo $d['Nama_Prodi'] ?></td>
-                      <td><a href="editprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-warning">Edit</a>
-                        <a href="hapusprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-danger">Hapus</a>
-                      </td>
-                    </tr>
-                  <?php
-                  }
-                  ?>
-                </tbody>
-              </table>
+            <!-- /.card -->
             </div>
-            <!-- /.card-body -->
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
           </div>
-          <!-- /.card -->
+          <!--/.col (right) -->
         </div>
-      </div>
+        <!-- /.row -->
       <!-- /.row -->
       <!-- /.row -->
       <!-- Main row -->
@@ -100,4 +91,5 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
 
 <?php
 include 'template/footer.php';
+
 ?>

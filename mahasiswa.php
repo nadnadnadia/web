@@ -38,7 +38,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Mahasiswa v1</li>
+              <li class="breadcrumb-item active">Data Mahasiswa </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -57,17 +57,10 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                 <h3 class="card-title">Data Mahasiswa</h3>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <a href="tambahmahasiswa.php"class="btn btn-primary">Tambah</a> 
               </div>
+            </div>
+            
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
@@ -101,5 +94,5 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                     <?php
                     }
                     ?>
-                 
-     
+                        
+     <
