@@ -48,7 +48,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Responsive Hover Table</h3>
+              <h3 class="card-title">Data Program Studi</h3>
 
               <div class="card-tools">
               <a href="tambahprodi.php"class="btn btn-primary">Tambah</a> 

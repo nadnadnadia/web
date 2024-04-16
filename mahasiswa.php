@@ -86,10 +86,10 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                       <td><?php echo $d['Nama']?> </td>
                       <td><?php echo $d['no_hp']?> </td>
                       <td><?php echo $d['Alamat']?> </td>
-                      <td><?php echo $d['Photo']?> </td>
-                      <td><a href= "" class="btn btn-warning">Edit</a>
-                          <a href="" class="btn btn-danger">Hapus</a>
-                        </td>
+                      <td> <img src="dist/img/<?php echo $d['Photo'] ?>" width="50px" height="50px" /> </td>
+                      <td><a href="editmahasiswa.php?nim=<?= $d['NIM'] ?>" class="btn btn-warning" >Edit</a>
+                    <a href="hapusmahasiswa.php?nim=<?= $d['NIM'] ?>" class="btn btn-danger" >Hapus</a>
+                    </td>
                     </tr>
                     <?php
                     }
