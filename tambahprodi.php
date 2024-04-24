@@ -1,6 +1,9 @@
 <?php  
+session_start();
 include 'template/header.php';
 include 'template/sidebar.php';
+require 'koneksi.php';
+ceklogin();
 
 $servername = "localhost";
 $database = "poliban";
