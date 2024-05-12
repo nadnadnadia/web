@@ -1,9 +1,11 @@
 <?php
 session_start();
-include 'template/header.php';
-include 'template/sidebar.php';
 require 'koneksi.php';
 ceklogin();
+include 'template/header.php';
+include 'template/sidebar.php';
+
+
 
 $servername = "localhost";
 $database = "poliban";
@@ -54,7 +56,9 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
               <h3 class="card-title">Data Program Studi</h3>
 
               <div class="card-tools">
+              <?php if ($_SESSION['hakakses'] == 'admin') : ?>
               <a href="tambahprodi.php"class="btn btn-primary">Tambah</a> 
+              <?php endif; ?>
               </div>
             </div>
             <!-- /.card-header -->
@@ -75,8 +79,11 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                     <tr>
                       <td><?php echo $i++ ?></td>
                       <td><?php echo $d['Nama_Prodi'] ?></td>
-                      <td><a href="editprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-warning">Edit</a>
-                        <a href="hapusprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-danger">Hapus</a>
+                      <td>
+                        <?php if ($_SESSION['hakakses'] == 'admin') : ?>
+                          <a href="editprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-warning">Edit</a>
+                          <a href="hapusprodi.php?ID_Prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-danger">Hapus</a>
+                          <?php endif; ?>
                       </td>
                     </tr>
                   <?php

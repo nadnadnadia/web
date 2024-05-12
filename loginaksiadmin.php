@@ -2,19 +2,19 @@
 session_start();
 require "koneksi.php";
 
-$NIM = $_POST['NIM'];
+$User = $_POST['User'];
 $Password = $_POST["Password"];
 
 //query to db
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa WHERE NIM='$NIM' ");
+$result = mysqli_query($conn, "SELECT * FROM admin WHERE User='$User' ");
 
 $row = mysqli_fetch_assoc($result);
 
 if (password_verify ($Password, $row['Password'])) {
     $_SESSION['login'] = true;
-    $_SESSION['Nama'] = $row['Nama'];
-    $_SESSION['Photo'] = $row['Photo'];
-    $_SESSION['hakakses'] = 'mahasiswa';
+    $_SESSION['Nama'] = $row['User'];
+    $_SESSION['Photo'] = 'admin.jpg';
+    $_SESSION['hakakses'] = 'admin';
     header("Location: index.php");
 }else {
     echo "
